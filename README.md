@@ -10,7 +10,7 @@
   - [x] Simple sine wave
   - [x] Square wave
   - [ ] Triangle wave
-  - [ ] Sawtooth wave
+  - [x] Sawtooth wave
 - [ ] ADSR - Attack, Decay, Sustain, Release
 - [ ] Synth
   - [ ] Monophonic:
