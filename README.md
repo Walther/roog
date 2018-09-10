@@ -1,5 +1,7 @@
 # roog
 
+[![Build Status](https://travis-ci.org/Walther/roog.svg?branch=master)](https://travis-ci.org/Walther/roog)
+
 /ˈɹoʊ̯ɡ/ - Synthesizer written in Rust
 
 ## TODO
