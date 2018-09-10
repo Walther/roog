@@ -1,0 +1,6 @@
+[package]
+name = "roog"
+version = "0.1.0"
+authors = ["Veeti Haapsamo <veeti.haapsamo@gmail.com>"]
+
+[dependencies]
