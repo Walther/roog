@@ -30,11 +30,10 @@ mod tests {
     #[test]
     fn test_sin() {
         assert!(sin(1.0, 0.0).approx_eq_ulps(&0.0, 1));
+        assert!(sin(440.0, 1.0/1760.0).approx_eq_ulps(&1.0, 1));
         // TODO: fix these broken tests and the possibly broken code!
         // assert!(sin(1.0, 1.0).approx_eq_ulps(&0.0, 1)); // FAILS
         // assert!(sin(1.0, 2.0).approx_eq_ulps(&0.0, 1)); // FAILS
-        // assert!(sin(1.0, PI).approx_eq_ulps(&0.0, 1)); // FAILS
-        // assert!(sin(440.0, PI / 220.0).approx_eq_ulps(&1.0, 1)); // FAILS
     }
 
     #[test]
