@@ -1,5 +1,5 @@
 mod oscillator;
-use oscillator::oscillator;
+use oscillator::sin;
 use std::f32::consts::PI;
 
 fn main() {
@@ -10,7 +10,7 @@ fn main() {
     let mut value;
     println!("Oscillator values:");
     for _ in 0..10 {
-        value = oscillator(hertz, time);
+        value = sin(hertz, time);
         print!("{} ", value);
         time += 0.1;
     }

@@ -6,7 +6,7 @@
 
 - [ ] Oscillator
   - [x] Simple sine wave
-  - [ ] Square wave
+  - [x] Square wave
   - [ ] Triangle wave
   - [ ] Sawtooth wave
 - [ ] ADSR - Attack, Decay, Sustain, Release
