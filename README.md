@@ -5,7 +5,7 @@
 ## TODO
 
 - [ ] Oscillator
-  - [ ] Simple sine wave
+  - [x] Simple sine wave
   - [ ] Square wave
   - [ ] Triangle wave
   - [ ] Sawtooth wave
