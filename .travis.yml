@@ -4,6 +4,8 @@ rust:
   - beta
   - nightly
 cache: cargo
+before_install:
+  - sudo apt-get install -y libasound2-dev
 matrix:
   allow_failures:
     - rust: nightly
