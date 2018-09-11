@@ -4,6 +4,7 @@ version = "0.1.0"
 authors = ["Veeti Haapsamo <veeti.haapsamo@gmail.com>"]
 
 [dependencies]
+cpal = "0.8.2"
 
 [dev-dependencies]
 float-cmp = "0.4.0"
