@@ -2,6 +2,9 @@ extern crate cpal;
 
 mod oscillator;
 use oscillator::sin;
+use oscillator::saw;
+use oscillator::square;
+use oscillator::triangle;
 
 fn main() {
     println!("Hello, roog!");
@@ -20,11 +23,16 @@ fn main() {
     let hertz = 440.0;
     let mut time = 0.0; // Should be seconds
 
-    // Code adapted from CAPL example. TODO: understand, write own
-    let mut oscillator = || {
+    let mut synth = || {
         sample_clock = (sample_clock + 1.0) % sample_rate;
         time = sample_clock / sample_rate; // Should be seconds
-        return sin(hertz, time);
+
+        // Example of a two-oscillator synth voice, with slight detune
+        // TODO: methods for creating such a synth, with mutable params
+        let oscillator1 = saw(hertz +2.0, time);
+        let oscillator2 = saw(hertz -2.0, time);
+        let mix = oscillator1 + oscillator2;
+        return mix;
     };
 
     // CPAL example main loop. TODO: understand, write own
@@ -32,7 +40,7 @@ fn main() {
         match data {
             cpal::StreamData::Output { buffer: cpal::UnknownTypeOutputBuffer::F32(mut buffer) } => {
                 for sample in buffer.chunks_mut(format.channels as usize) {
-                    let value = oscillator();
+                    let value = synth();
                     for out in sample.iter_mut() {
                         *out = value;
                     }
