@@ -6,10 +6,10 @@
 
 ## TODO
 
-- [ ] Oscillator
+- [x] Oscillator
   - [x] Simple sine wave
   - [x] Square wave
-  - [ ] Triangle wave
+  - [x] Triangle wave
   - [x] Sawtooth wave
 - [ ] ADSR - Attack, Decay, Sustain, Release
 - [ ] Synth
