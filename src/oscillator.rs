@@ -1,6 +1,5 @@
 use std::f32::consts::PI;
 
-
 // Initial thought: let's treat this kind of like shader code:
 // we just evaluate the function given the parameters
 
@@ -18,7 +17,15 @@ pub fn square(hertz: f32, time: f32) -> f32 {
 
 pub fn saw(hertz: f32, time: f32) -> f32 {
     let x = hertz * time;
-    return 2.0 *(x - (0.5+x).floor());
+    return 2.0 * (x - (0.5 + x).floor());
+}
+
+pub fn triangle(hertz: f32, time: f32) -> f32 {
+    // Absolute value of sawtooth + shifting
+    // NOTE: currently produces a V wave (x, y)
+    // (0, 1) (0.5, -1) (1, 1)
+    // Is this okay? Should it be shifted to resemble sin?
+    return (2.0 * (saw(hertz, time).abs() - 1.0).abs()) - 1.0;
 }
 
 #[cfg(test)]
@@ -30,10 +37,7 @@ mod tests {
     #[test]
     fn test_sin() {
         assert!(sin(1.0, 0.0).approx_eq_ulps(&0.0, 1));
-        assert!(sin(440.0, 1.0/1760.0).approx_eq_ulps(&1.0, 1));
-        // TODO: fix these broken tests and the possibly broken code!
-        // assert!(sin(1.0, 1.0).approx_eq_ulps(&0.0, 1)); // FAILS
-        // assert!(sin(1.0, 2.0).approx_eq_ulps(&0.0, 1)); // FAILS
+        assert!(sin(440.0, 1.0 / 1760.0).approx_eq_ulps(&1.0, 1));
     }
 
     #[test]
@@ -47,10 +51,16 @@ mod tests {
     #[test]
     fn test_saw() {
         assert!(saw(1.0, 0.0).approx_eq_ulps(&0.0, 1));
-        // assert!(saw(1.0, 1.0).approx_eq_ulps(&0.0, 1)); // FAILS
         assert!(saw(1.0, 0.4999999).approx_eq_ulps(&1.0, 3));
         assert!(saw(1.0, 0.5).approx_eq_ulps(&-1.0, 1));
         assert!(saw(1.0, 1.5).approx_eq_ulps(&-1.0, 1));
         assert!(saw(1.0, 0.25).approx_eq_ulps(&0.5, 1));
+    }
+
+    #[test]
+    fn test_triangle() {
+        assert!(triangle(1.0, 0.0).approx_eq_ulps(&1.0, 1));
+        assert!(triangle(1.0, 0.5).approx_eq_ulps(&-1.0, 1));
+        assert!(triangle(1.0, 1.0).approx_eq_ulps(&1.0, 1));
     }
 }
