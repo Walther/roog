@@ -1,13 +1,13 @@
-use std::f32::consts::PI;
+use std::f64::consts::PI;
 
 // Initial thought: let's treat this kind of like shader code:
 // we just evaluate the function given the parameters
 
-pub fn sin(hertz: f32, time: f32) -> f32 {
+pub fn sin(hertz: f64, time: f64) -> f64 {
     return (2.0 * PI * hertz * time).sin();
 }
 
-pub fn square(hertz: f32, time: f32) -> f32 {
+pub fn square(hertz: f64, time: f64) -> f64 {
     if (2.0 * PI * hertz * time).sin().is_sign_positive() {
         return 1.0;
     } else {
@@ -15,12 +15,12 @@ pub fn square(hertz: f32, time: f32) -> f32 {
     }
 }
 
-pub fn saw(hertz: f32, time: f32) -> f32 {
+pub fn saw(hertz: f64, time: f64) -> f64 {
     let x = hertz * time;
     return 2.0 * (x - (0.5 + x).floor());
 }
 
-pub fn triangle(hertz: f32, time: f32) -> f32 {
+pub fn triangle(hertz: f64, time: f64) -> f64 {
     // Absolute value of sawtooth + shifting
     // NOTE: currently produces a V wave (x, y)
     // (0, 1) (0.5, -1) (1, 1)
@@ -51,7 +51,7 @@ mod tests {
     #[test]
     fn test_saw() {
         assert!(saw(1.0, 0.0).approx_eq_ulps(&0.0, 1));
-        assert!(saw(1.0, 0.4999999).approx_eq_ulps(&1.0, 3));
+        assert!(saw(1.0, 0.4999999999999999).approx_eq_ulps(&1.0, 2));
         assert!(saw(1.0, 0.5).approx_eq_ulps(&-1.0, 1));
         assert!(saw(1.0, 1.5).approx_eq_ulps(&-1.0, 1));
         assert!(saw(1.0, 0.25).approx_eq_ulps(&0.5, 1));
