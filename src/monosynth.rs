@@ -1,4 +1,4 @@
-use oscillator::{saw, sin, square, triangle};
+use oscillator::*;
 
 pub struct MonoSynth {
   saw: f64,
