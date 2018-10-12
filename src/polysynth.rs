@@ -27,11 +27,12 @@ impl PolySynth {
 
   pub fn note_on(&mut self, hertz: f64) {
     // Try to find a free slot in the 128-voice synth
+    // Prefer a note with the same hertz already, if e.g. in Release phase
     if let Some(note) = self
       .keyboard
       .notes
       .iter_mut()
-      .find(|note| note.state == NoteState::Off)
+      .find(|note| note.value == hertz || note.state == NoteState::Off)
     {
       // if we find one, set it on!
       note.value = hertz;
