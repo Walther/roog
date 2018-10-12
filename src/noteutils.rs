@@ -21,7 +21,7 @@ impl Default for Note {
       state: NoteState::Off,
       duration: 0.0,
       release_time: 0.0,
-      value: 440.0, // A4
+      value: 0.0,
     }
   }
 }
@@ -35,5 +35,11 @@ impl Default for Keyboard {
     Keyboard {
       notes: [Note::default(); 128],
     }
+  }
+}
+
+impl Keyboard {
+  pub fn new() -> Keyboard {
+    Keyboard::default()
   }
 }

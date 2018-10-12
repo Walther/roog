@@ -37,7 +37,7 @@
   - [x] Sawtooth wave
 - [x] ADSR - Attack, Decay, Sustain, Release
 - [x] Monophonic synth
-- [ ] Polyphonic synth
+- [x] Polyphonic synth
 - [ ] CI builds into VST files
 - [ ] GUI, with cross-platform support
 - [ ] Something exciting
