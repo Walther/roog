@@ -4,6 +4,30 @@
 
 /ˈɹoʊ̯ɡ/ - Synthesizer written in Rust
 
+## roog synth design
+
+### wave stage
+
+- saw, sin, square, triangle wave primitives
+- volume control for each determines the mix
+
+### adsr stage
+
+- attack, decay, sustain, release
+- for shaping the volume during the lifetime of the note
+
+### filter stage
+
+- ??
+
+### something exciting stage
+
+- ??
+
+### output stage ?
+
+- final volume ?
+
 ## TODO
 
 - [x] Oscillator
@@ -11,15 +35,12 @@
   - [x] Square wave
   - [x] Triangle wave
   - [x] Sawtooth wave
-- [ ] ADSR - Attack, Decay, Sustain, Release
-- [ ] Synth
-  - [ ] Monophonic:
-  - [ ] Using 1 oscillator
-  - [ ] Using 2 oscillators with a blend knob
-  - [ ] Using an ADSR for note events
-  - [ ] Polyphonic
-    - [ ] Shared continuous oscillators (think: oscillator call for each note doesn't always start from 0)
-    - [ ] ADSR triggered for each note event separately (think: chord and melody played simultaneously)
+- [x] ADSR - Attack, Decay, Sustain, Release
+- [x] Monophonic synth
+- [ ] Polyphonic synth
+- [ ] CI builds into VST files
+- [ ] GUI, with cross-platform support
+- [ ] Something exciting
 
 ## Random design thoughts
 
