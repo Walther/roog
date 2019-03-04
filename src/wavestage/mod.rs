@@ -1,4 +1,4 @@
-use oscillator::*;
+use crate::oscillator::*;
 
 pub struct WaveStage {
   pub saw_intensity: f64,

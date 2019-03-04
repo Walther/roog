@@ -29,7 +29,7 @@ pub fn triangle(hertz: f64, time: f64, intensity: f64) -> f64 {
 mod tests {
     use super::*;
     extern crate float_cmp;
-    use oscillator::tests::float_cmp::ApproxEqUlps;
+    use crate::oscillator::tests::float_cmp::ApproxEqUlps;
 
     #[test]
     fn test_sin() {

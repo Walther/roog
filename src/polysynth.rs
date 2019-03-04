@@ -1,6 +1,6 @@
-use adsrstage::*;
-use noteutils::*;
-use wavestage::*;
+use crate::adsrstage::*;
+use crate::noteutils::*;
+use crate::wavestage::*;
 
 pub struct PolySynth {
   sample_rate: f64,

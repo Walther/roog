@@ -2,6 +2,7 @@
 name = "roog"
 version = "0.1.0"
 authors = ["Veeti Haapsamo <veeti.haapsamo@gmail.com>"]
+edition = "2018"
 
 [dependencies]
 
