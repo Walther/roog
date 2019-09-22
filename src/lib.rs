@@ -4,6 +4,9 @@ pub use adsrstage::*;
 pub mod wavestage;
 pub use wavestage::*;
 
+pub mod filterstage;
+pub use filterstage::*;
+
 pub mod monosynth;
 pub use monosynth::MonoSynth;
 
